@@ -1,0 +1,185 @@
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .d-none{
+            display: none;
+        }
+
+        .border{
+            border: 2px solid #50c2ff;
+            border-radius: 6px;
+        }
+
+        body{
+            background-color: #121212;
+        }
+
+        .container{
+            width: 500px;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 16px;
+            margin: 10% auto 0;
+        }
+
+        .todo-head{
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #message{
+            font-size: 12px;
+            text-align: center;
+            font-weight: 600;
+            height: 20px;
+        }
+        
+        .success-message{
+            color: #00df00;
+        }
+
+        .error-message{
+            color: #ff0000;
+        }
+
+        #clearmessage{
+            background-color: #ff0000;
+            height: 10px;
+            width: 10px;
+            color: #ff0000;
+        }
+
+        .todo-head img{
+            width: 50px;
+            margin-left: 20px;
+        }
+
+        .create-todo{
+            margin: 25px auto;
+            position: relative;
+        }
+        
+        .create-todo input{
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            background-color: #eaeaea;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        .create-todo input::placeholder{
+            font-size: 1rem;
+        }
+        .create-todo input:focus{
+            border: none;
+            outline: none;
+            background-color: #cbcaca;
+        }
+
+        .addbtn-div{
+            width: 46px;
+            height: 46px;
+            background-color: #00df00;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        
+        /* .addbtn-div:hover{
+            animation: animateaddbtn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s infinite alternate;
+        } */
+        
+        @keyframes animateaddbtn {
+            from{
+                background-color: #00df00;
+                transform: rotate(0deg);
+            }
+            to{
+                background-color: #2def2d;
+                transform: rotate(360deg);
+            }
+            
+        }
+
+        .todo-body{
+            margin: 5px auto;
+            width: 98%;
+        }
+
+        .item{
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .item input{
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #eaeaea;
+            border: none;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .item input:focus{
+            border: none;
+            outline: none;
+            background-color: #cbcaca;
+        }
+
+        .handletodo{
+            position: absolute;
+            right: 18px;
+            top: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .handletodo i{
+            margin-left: 10px;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .clear-todo{
+            text-align: end;
+            padding-top: 30px;
+            padding-right: 50px;
+            color: #ffffff;
+        }
+        .clear-todo i{
+            margin-right: 6px;
+        }
+
+        #checkbox{
+            transform: scale(1.3);
+        }
+
+        #delete-all{
+            cursor: pointer;
+        }
+
+        .completed{
+            text-decoration: line-through;
+        }
+
+        .fa-check{
+            font-size: 22px;
+            color: rgb(4, 218, 4);
+            display: none;
+        }
