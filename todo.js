@@ -32,3 +32,54 @@ const errorMessage = (msg) => {
             setTimeout(() => {message.innerHTML = ''}, 3000);
 }
 
+delAll.addEventListener('click', () => {
+    const del = confirm('Are you sure want to delete all?');
+    if(del){
+        localStorage.clear();
+        todobody.innerHTML = '';
+    }
+})
+
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let addTodoInput = document.getElementById('addTodoText');
+    let addTodoInputValue = addTodoInput.value;
+    
+    if(addTodoInputValue.trim().length === 0 || addTodoInputValue === undefined || addTodoInputValue === null){
+        addTodoInput.focus();
+        errorMessage("Invalid Input")
+    }else{
+        // check item exists or not
+        let isExist = false;
+        todos.forEach((ele) => {
+            if(ele.item === addTodoInputValue){
+                isExist = true;     
+            }
+        });
+
+        if(isExist){
+            errorMessage('Todo already exists')
+            addTodoInput.focus();
+            return;
+        }
+
+        const todoObj = {
+            item : addTodoInputValue,
+            id : Date.now(),
+            status : false
+        }
+
+        if(!todos){
+            todos = [];
+        }
+
+
+        todos = [...todos, todoObj]
+        setLocalStorage();
+        render();
+        addTodoInput.value = '';
+        successMessage("Todo Added Successfully");
+    }
+})
+
