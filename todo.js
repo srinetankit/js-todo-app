@@ -14,3 +14,21 @@ let setLocalStorage = () => {
     localStorage.setItem('key', JSON.stringify(todos));
 }
 
+const successMessage = (msg) => {
+    message.innerHTML = `<span class="success-message">${msg}
+                <span id="clearmessage">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </span>`
+            setTimeout(() => {message.innerHTML = ''}, 3000);
+}
+
+const errorMessage = (msg) => {
+    message.innerHTML = `<span class="error-message">${msg}
+                <span id="clearmessage">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </span>`
+            setTimeout(() => {message.innerHTML = ''}, 3000);
+}
+
