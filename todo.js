@@ -41,6 +41,7 @@ delAll.addEventListener('click', () => {
 })
 
 
+// create todo functionality
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let addTodoInput = document.getElementById('addTodoText');
@@ -83,3 +84,28 @@ form.addEventListener('submit', (e) => {
     }
 })
 
+
+// Render all todo items on UI
+function render(){
+    todobody.innerHTML = ''; //clear the todobody before re-render  
+    todos.forEach((todo) => {
+        let addDiv = document.createElement('div');
+        addDiv.classList.add('item');
+            addDiv.setAttribute('id', todo.id);
+            addDiv.innerHTML =`
+            <input type="text" class="todoText" name="${todo.item}" value="${todo.item}" readonly autocapitalize="on">
+            <div class="handletodo">
+            <input type='checkbox' class='checkbox' onclick="isCompleted(event)"  />
+            <i class="fa-solid fa-pencil" onclick="editTodo(event)" id="edit"></i>
+            <i class="fa-solid fa-check" onclick="submitEdit(event)"></i>
+            <i class="fa-solid fa-trash-can" id="delete" onclick="deleteTodo(event)"></i>
+            </div>`;
+            
+            todobody.appendChild(addDiv);
+            console.log('render invoked');
+    })
+}
+
+render();
+
+ 
