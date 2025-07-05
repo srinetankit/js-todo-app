@@ -147,4 +147,39 @@ function isCompleted(e){
     })
 }
 
- 
+// Edit todo functionality
+
+function editTodo(e){
+    let editBtn = e.target;
+    let checkBtn = editBtn.nextElementSibling;
+    let currTodo = e.target.closest('.item');
+    let currTodoText = currTodo.firstElementChild;
+    let parentDiv = editBtn.parentElement.parentElement;
+
+    parentDiv.focus();
+    parentDiv.classList.add('border')
+    currTodoText.removeAttribute('readOnly');
+    editBtn.style.display = 'none';
+    checkBtn.style.display = 'flex';
+
+}
+
+function submitEdit(e){
+    let parentDiv = e.target.parentElement.parentElement;
+    let text = parentDiv.firstElementChild;
+    let textValue = text.value;
+    console.log(textValue);
+    console.log(parentDiv.id);
+    
+    todos.forEach((todo) => {
+        if(todo.id == parentDiv.id){
+            if(textValue.trim().length > 0){
+                todo.item = text.value;
+            }
+            setLocalStorage();
+            render();
+        }
+        console.log(todo.id);
+    })
+
+}
