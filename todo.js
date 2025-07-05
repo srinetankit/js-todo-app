@@ -108,4 +108,43 @@ function render(){
 
 render();
 
+// delete todo functionality
+
+function deleteTodo(e){
+    let currTodo = e.target.parentElement.parentElement;
+    // console.log(currTodo.id);
+
+    todos.forEach(todo => todo.id == currTodo.id ? currTodo.remove() : todo)
+    todos = todos.filter(todo => todo.id != currTodo.id);
+    setLocalStorage();
+}
+
+// Mark as completed todo and change status
+
+function isCompleted(e){
+    
+    let currTodo = e.target.closest('.item');
+    let currTodoText = currTodo.firstElementChild;
+    let editBtn = e.target.nextElementSibling;
+    console.log(editBtn);
+    
+    // console.log(currTodo.id);
+    todos.forEach(todo => {
+        if(todo.id == currTodo.id){
+            if (!(todo.status)) {
+                currTodoText.classList.add('completed')
+                e.target.setAttribute('checked', true);
+                editBtn.classList.add('d-none');
+
+            }else{
+                currTodoText.classList.remove('completed');
+                e.target.removeAttribute('checked');
+                editBtn.classList.remove('d-none');
+            }
+            todo.status = !(todo.status)
+            setLocalStorage();
+        }
+    })
+}
+
  
